@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './App.css';
 import BoardBuilder from './Container/BoardBuilder';
 import Board from './Container/Board';
 import {withRouter, Route, Switch, Link} from 'react-router-dom';
-import * as actions from './store/actions/index';
 
 class App extends Component {
-  componentDidMount(){
-    this.props.getBoards();
-  }
+  
   render() {
     return (
       <div className="container">
@@ -29,12 +25,4 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getBoards:()=> dispatch(actions.getBoards())
-  };
-};
-
-
-
-export default withRouter(connect(null,mapDispatchToProps)(App));
+export default withRouter(App);

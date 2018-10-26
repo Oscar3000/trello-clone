@@ -11,6 +11,9 @@ class BoardBuilder extends Component {
     name:''
   }
 
+  componentDidMount(){
+    this.props.getBoards();
+  }
   
   openBuilderHandler = (e)=>{
     this.setState({show:true});
@@ -92,6 +95,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => {
   return{
+    getBoards:() => dispatch(actions.getBoards()),
     addBoard:(board) => dispatch(actions.addBoard(board)),
     removeBoard:(id) => dispatch(actions.removeBoard(id)) 
   }
